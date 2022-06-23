@@ -1,8 +1,8 @@
 {
-  "name": "get-video-duration",
-  "description": "Get the duration of a video file",
-  "version": "4.1.0",
-  "author": "Lluís Ulzurrun de Asanza Sàez <me@llu.is> (http://llu.is)",
+  "name": "get-video-info",
+  "description": "Get the info of a video file",
+  "version": "1.0.0",
+  "author": "Surasak <surasak@adapterdigital.com>",
   "license": "MIT",
   "repository": "caffco/get-video-duration",
   "main": "dist/commonjs/index.js",

@@ -8,7 +8,7 @@ const getFFprobeWrappedExecution = (
   input: string | Readable,
   ffprobePath?: string
 ): execa.ExecaChildProcess => {
-  const params = ['-v', 'error', '-show_format', '-show_streams']
+  const params = ['-v', 'quiet', '-print_format', 'json', '-show_format', '-show_streams' ]
 
   const overridenPath = ffprobePath || ffprobe.path
 
@@ -40,15 +40,13 @@ const getFFprobeWrappedExecution = (
  * @return Promise that will be resolved with given video duration in
  * seconds.
  */
-const getVideoDurationInSeconds = async (
+const getVideoInfo = async (
   input: string | Readable,
   ffprobePath?: string
-): Promise<number> => {
+): Promise<object> => {
   const { stdout } = await getFFprobeWrappedExecution(input, ffprobePath)
-  const matched = stdout.match(/duration="?(\d*\.\d*)"?/)
-  if (matched && matched[1]) return parseFloat(matched[1])
-  throw new Error('No duration found!')
+  return JSON.parse(stdout)
 }
 
-export default getVideoDurationInSeconds
-export { getVideoDurationInSeconds }
+export default getVideoInfo
+export { getVideoInfo }
