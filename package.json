@@ -1,10 +1,13 @@
 {
-  "name": "get-video-info",
+  "name": "get-video-info-v2",
   "description": "Get the info of a video file",
   "version": "1.0.0",
   "author": "Surasak <surasak@adapterdigital.com>",
   "license": "MIT",
-  "repository": "caffco/get-video-duration",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adapterdigital/get-video-info-v2.git"
+  },
   "main": "dist/commonjs/index.js",
   "module": "dist/es6/index.js",
   "dependencies": {
@@ -20,8 +23,6 @@
     "@typescript-eslint/parser": "^5.17.0",
     "es-check": "^6.2.1",
     "eslint": "^8.12.0",
-    "husky": "^4.2.5",
-    "jest": "^27.5.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.6.1",
     "source-map-support": "^0.5.21",
@@ -37,13 +38,7 @@
     "build:commonjs": "tsc --p tsconfig.commonjs.json",
     "build:es6": "tsc --p tsconfig.es6.json",
     "test": "jest",
-    "format": "prettier --config .prettierrc 'src/**/*.ts' 'test/**/*.ts' --write",
-    "prepublishOnly": "run-s test build"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "run-s lint format"
-    }
+    "format": "prettier --config .prettierrc 'src/**/*.ts' 'test/**/*.ts' --write"
   },
   "keywords": [
     "video",
